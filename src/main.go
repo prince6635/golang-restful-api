@@ -1,5 +1,12 @@
 package main
 
+import (
+	"log"
+	"net/http"
+
+	"./service"
+)
+
 func main() {
 	// StartBasicWebServer()
 	// StartWebServerWithRouter()
@@ -12,5 +19,6 @@ func main() {
 				routes.go
 				todo.go
 	*/
-
+	router := service.NewRouter()
+	log.Fatal(http.ListenAndServe(":8080", router))
 }
